@@ -1,13 +1,21 @@
-name: 'The Action Name'
-description: 'The action description'
+name: Create Release Notes
+description: Creates Release Notes for a package to publish
 inputs:
-  someInput:
-    description: Description of the input
+  body:
+    description: Release summary
     required: true
+  version:
+    description: Version of the release
+    required: true
+  changelog-url:
+    description: Link to the full changelog to append to the release notes
+    required: false
 
 outputs:
-  output:
-    description: Description of the output
+  markdown:
+    description: Release notes formatted as Markdown
+  plaintext:
+    description: Releases notes formatted as plain text
   
 runs:
   using: 'node12'
