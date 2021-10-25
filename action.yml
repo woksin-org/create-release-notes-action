@@ -1,0 +1,22 @@
+name: Create Release Notes
+description: Creates Release Notes for a package to publish
+inputs:
+  body:
+    description: Release summary
+    required: true
+  version:
+    description: Version of the release
+    required: true
+  changelog-url:
+    description: Link to the full changelog to append to the release notes
+    required: false
+
+outputs:
+  markdown:
+    description: Release notes formatted as Markdown
+  plaintext:
+    description: Releases notes formatted as plain text
+  
+runs:
+  using: 'node12'
+  main: 'release/index.js'
