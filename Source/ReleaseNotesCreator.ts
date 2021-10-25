@@ -36,7 +36,7 @@ export class ReleaseNotesCreator implements ICreateReleaseNotes {
 
     private replaceOrAddFirstHeaderWithVersion(version: string, body: TokensList) {
         this._logger.debug(`Replacing or adding the first header to specify version '${version}'`);
-        
+
         const headingText = 'Version ' + version;
         const headingToken: Tokens.Heading = {
             type: 'heading',
@@ -45,10 +45,10 @@ export class ReleaseNotesCreator implements ICreateReleaseNotes {
             text: headingText,
             tokens: [{ type: 'text', raw: headingText, text: headingText }]
         };
-        
+
         if (this.firstTokenIsSummaryHeader(body[0])) {
             this._logger.debug('First token was a "## Summary" header, replacing it');
-            
+
             const trailingWhitespace = this._summaryHeadingExpression.exec(body[0].raw)![1];
             headingToken.depth = body[0].depth;
             headingToken.raw = '#'.repeat(body[0].depth) + ' ' + headingText + trailingWhitespace;

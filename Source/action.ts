@@ -21,7 +21,7 @@ export async function run() {
         logger.info(` body: '${body}'`);
         logger.info(` version: '${version}'`);
         logger.info(` changelog-url: '${changelogURL}'`);
-        
+
         const parser = new ReleaseParser(logger);
         const information = parser.parse(version, body, changelogURL);
 
@@ -32,7 +32,7 @@ export async function run() {
         const markdown = markdownRenderer.render(releaseNotes);
         const plaintextRenderer = new PlaintextRenderer(logger);
         const plaintext = plaintextRenderer.render(releaseNotes);
-        
+
         output(markdown, plaintext);
     } catch (error) {
         fail(error as Error);
