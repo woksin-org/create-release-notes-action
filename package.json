@@ -16,13 +16,15 @@
     "release": "yarn build && yarn test:run && yarn test:clean && npx ncc build Distribution/action.js --out release"
   },
   "devDependencies": {
-    "@dolittle/typescript.build": "^5.3.6",
-    "@zeit/ncc": "^0.22.3",
-    "del-cli": "^3.0.1"
+    "@dolittle/typescript.build": "5.3.6",
+    "@types/marked": "3.0.2",
+    "@zeit/ncc": "0.22.3",
+    "del-cli": "3.0.1"
   },
   "dependencies": {
-    "@actions/core": "^1.2.4",
-    "@dolittle/github-actions.shared.logging": "^1.1.1",
-    "@dolittle/github-actions.shared.rudiments": "^1.1.1"
+    "@actions/core": "1.2.4",
+    "@dolittle/github-actions.shared.logging": "1.1.1",
+    "@dolittle/github-actions.shared.rudiments": "1.1.1",
+    "marked": "3.0.8"
   }
 }
