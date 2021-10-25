@@ -23,6 +23,11 @@ export class ReleaseParser implements IParseReleaseInformation {
 
     /** @inheritdoc */
     parse(version: string, body: string, changelogURL?: string): ReleaseInformation {
+        this._logger.debug('Parsing release information from:');
+        this._logger.debug(` version: ${version}`);
+        this._logger.debug(` body: ${body}`);
+        this._logger.debug(` changelogURL: ${changelogURL}`);
+
         this.throwIfVersionNotProvided(version);
 
         const tokens = this._lexer.lex(body);
@@ -37,12 +42,14 @@ export class ReleaseParser implements IParseReleaseInformation {
 
     private throwIfVersionNotProvided(version: string) {
         if (version === undefined || version === null || version.trim() === '') {
+            this._logger.error('Version not provided or whitespace');
             throw new VersionNotProvided();
         }
     }
 
     private getChangelogURL(changelogURL?: string): { hasChangelogURL: boolean, changelogURL: string } {
         if (changelogURL === undefined || changelogURL === null || changelogURL === '') {
+            this._logger.debug('Changelog URL not provided');
             return {
                 hasChangelogURL: false,
                 changelogURL: '',
@@ -50,11 +57,13 @@ export class ReleaseParser implements IParseReleaseInformation {
         }
 
         try {
+            this._logger.debug('Changelog URL provided');
             return {
                 hasChangelogURL: true,
                 changelogURL: new URL(changelogURL).toString(),
             };
         } catch {
+            this._logger.error('Parsing changelog URL failed');
             throw new InvalidChangelogURL(changelogURL);
         }
     }

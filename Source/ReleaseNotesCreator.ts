@@ -29,11 +29,14 @@ export class ReleaseNotesCreator implements ICreateReleaseNotes {
     }
 
     private cloneTokensList(original: TokensList): TokensList {
+        this._logger.debug('Cloning the original release summary');
         const tokens = original.slice();
         return Object.assign(tokens, { links: original.links });
     }
 
     private replaceOrAddFirstHeaderWithVersion(version: string, body: TokensList) {
+        this._logger.debug(`Replacing or adding the first header to specify version '${version}'`);
+        
         const headingText = 'Version ' + version;
         const headingToken: Tokens.Heading = {
             type: 'heading',
@@ -42,13 +45,16 @@ export class ReleaseNotesCreator implements ICreateReleaseNotes {
             text: headingText,
             tokens: [{ type: 'text', raw: headingText, text: headingText }]
         };
-
+        
         if (this.firstTokenIsSummaryHeader(body[0])) {
+            this._logger.debug('First token was a "## Summary" header, replacing it');
+            
             const trailingWhitespace = this._summaryHeadingExpression.exec(body[0].raw)![1];
             headingToken.depth = body[0].depth;
             headingToken.raw = '#'.repeat(body[0].depth) + ' ' + headingText + trailingWhitespace;
             body[0] = headingToken;
         } else {
+            this._logger.debug('First token was not a "## Summary" header, prepending a new one');
             body.splice(0, 0, headingToken);
         }
     }
@@ -59,6 +65,7 @@ export class ReleaseNotesCreator implements ICreateReleaseNotes {
 
     private appendChangelogURLIfSet(hasChangelogURL: boolean, changelogURL: string, body: TokensList) {
         if (hasChangelogURL) {
+            this._logger.debug(`Appending a changelog section with URL '${changelogURL}'`);
             body.push(
                 {
                     type: 'heading',
@@ -87,6 +94,8 @@ export class ReleaseNotesCreator implements ICreateReleaseNotes {
                         },
                     ],
                 });
+        } else {
+            this._logger.debug('No changelog URL provided, not appending section');
         }
     }
 }

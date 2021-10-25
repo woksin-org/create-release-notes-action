@@ -106,6 +106,7 @@ export class PlaintextRenderer implements IRenderReleaseNotes {
 
     /** @inheritdoc */
     render(releaseNotes: ReleaseNotes): string {
+        this._logger.debug('Rendering release notes as plain text');
         return this._parser.parse(releaseNotes);
     }
 }

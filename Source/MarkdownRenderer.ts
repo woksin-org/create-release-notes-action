@@ -18,6 +18,7 @@ export class MarkdownRenderer implements IRenderReleaseNotes {
 
     /** @inheritdoc */
     render(releaseNotes: ReleaseNotes): string {
+        this._logger.debug('Rendering release notes as Markdown');
         return releaseNotes.map(token => token.raw).join('');
     }
 }
