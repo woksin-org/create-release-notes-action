@@ -1,3 +1,15 @@
+# [1.1.0] - 2021-10-26 [PR: #3](https://github.com/dolittle/create-release-notes-action/pull/3)
+## Summary
+
+Introducing output formatters to cater to special string handling of different build tools.
+
+### Added
+
+- Input parameter to select output formatting
+- Raw output formatting for doing noting with the output string (default)
+- MSbuild output formatter that escapes commas and semicolons
+
+
 # [1.0.0] - 2021-10-25 [PR: #2](https://github.com/dolittle/create-release-notes-action/pull/2)
 ## Summary
 
