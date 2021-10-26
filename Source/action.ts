@@ -25,7 +25,7 @@ export async function run() {
         logger.info(` body: '${body}'`);
         logger.info(` version: '${version}'`);
         logger.info(` changelog-url: '${changelogURL}'`);
-        logger.info(` outputFormat: '${outputFormat}'`);
+        logger.info(` output-format: '${outputFormat}'`);
 
         const parser = new ReleaseParser(logger);
         const information = parser.parse(version, body, changelogURL);
