@@ -4,7 +4,10 @@
 import { getInput, setOutput, setFailed } from '@actions/core';
 import { Logger } from '@dolittle/github-actions.shared.logging';
 import { MarkdownRenderer } from './MarkdownRenderer';
+import { MSbuildOutputFormatter } from './MSbuildOutputFormatter';
+import { OutputFormatters } from './OutputFormatters';
 import { PlaintextRenderer } from './PlaintextRenderer';
+import { RawOutputFormatter } from './RawOutputFormatter';
 import { ReleaseNotesCreator } from './ReleaseNotesCreator';
 import { ReleaseParser } from './ReleaseParser';
 
@@ -16,11 +19,13 @@ export async function run() {
         const body = getInput('body', { required: true });
         const version = getInput('version', { required: true });
         const changelogURL = getInput('changelog-url');
+        let outputFormat = getInput('output-format');
 
         logger.info('Inputs:');
         logger.info(` body: '${body}'`);
         logger.info(` version: '${version}'`);
         logger.info(` changelog-url: '${changelogURL}'`);
+        logger.info(` outputFormat: '${outputFormat}'`);
 
         const parser = new ReleaseParser(logger);
         const information = parser.parse(version, body, changelogURL);
@@ -28,10 +33,16 @@ export async function run() {
         const creator = new ReleaseNotesCreator(logger);
         const releaseNotes = creator.createFrom(information);
 
+        const formatters = new OutputFormatters(new RawOutputFormatter(), new MSbuildOutputFormatter());
+        if (outputFormat === undefined || outputFormat === null || outputFormat.trim() === '') {
+            logger.debug('Output format not provided, defaulting to "raw"');
+            outputFormat = 'raw';
+        }
+
         const markdownRenderer = new MarkdownRenderer(logger);
-        const markdown = markdownRenderer.render(releaseNotes);
+        const markdown = formatters.format(outputFormat, markdownRenderer.render(releaseNotes));
         const plaintextRenderer = new PlaintextRenderer(logger);
-        const plaintext = plaintextRenderer.render(releaseNotes);
+        const plaintext = formatters.format(outputFormat, plaintextRenderer.render(releaseNotes));
 
         output(markdown, plaintext);
     } catch (error) {

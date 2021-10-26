@@ -10,6 +10,9 @@ inputs:
   changelog-url:
     description: Link to the full changelog to append to the release notes
     required: false
+  output-format:
+    description: Output format used for special treament of output strings. Can be "raw" or "msbuild", defaults to "raw".
+    required: false
 
 outputs:
   markdown:
