@@ -1,3 +1,13 @@
+# [1.1.2] - 2021-11-26 [PR: #5](https://github.com/dolittle/create-release-notes-action/pull/5)
+## Summary
+
+Escapes `"` and `&` characters when outputting MSbuild format.
+
+### Fixed
+
+- Release notes with `"` or `&` characters broke `dotnet pack` command.
+
+
 # [1.1.1] - 2021-10-26 [PR: #4](https://github.com/dolittle/create-release-notes-action/pull/4)
 ## Summary
 
