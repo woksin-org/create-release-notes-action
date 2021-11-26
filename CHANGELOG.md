@@ -1,3 +1,13 @@
+# [1.1.1] - 2021-10-26 [PR: #4](https://github.com/dolittle/create-release-notes-action/pull/4)
+## Summary
+
+Fixed a little typo in the "output-format" input printing.
+
+### Fixed
+
+- Typo in input printing
+
+
 # [1.1.0] - 2021-10-26 [PR: #3](https://github.com/dolittle/create-release-notes-action/pull/3)
 ## Summary
 
