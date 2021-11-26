@@ -12,6 +12,10 @@ export class MSbuildOutputFormatter implements IFormatOutputs {
 
     /** @inheritdoc */
     format(output: string): string {
-        return output.replace(/,/g, '%2C').replace(/;/g, '%3B');
+        return output
+            .replace(/,/g, '%2C')
+            .replace(/;/g, '%3B')
+            .replace(/"/g, '%22')
+            .replace(/&/g, '%26');
     }
 }
