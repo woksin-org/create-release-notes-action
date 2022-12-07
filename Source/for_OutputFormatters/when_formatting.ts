@@ -6,7 +6,6 @@ import { expect } from 'chai';
 import { OutputFormatters } from '../OutputFormatters';
 import { an_msbuild_formatter, a_raw_formatter } from './given/some_output_formatters';
 
-
 describe('for OutputFormatters', () => {
     describe('when formatting', () => {
         const raw_formatter = a_raw_formatter();

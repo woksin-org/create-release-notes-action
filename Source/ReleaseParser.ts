@@ -16,6 +16,10 @@ export class ReleaseParser implements IParseReleaseInformation {
     private readonly _lexer: Lexer;
     private readonly _logger: ILogger;
 
+    /**
+     * Initializes a new instance of the {ReleaseParser} class.
+     * @param {ILogger} logger - The logger.
+     */
     constructor(private logger: ILogger) {
         this._lexer = new Lexer();
         this._logger = logger;
@@ -34,7 +38,7 @@ export class ReleaseParser implements IParseReleaseInformation {
         const changelog = this.getChangelogURL(changelogURL);
 
         return {
-            version: version,
+            version,
             body: tokens,
             ...changelog,
         };

@@ -13,9 +13,8 @@ export interface IFormatOutputs {
 
     /**
      * Formats the provided output string.
-     * @param output The output string to format.
-     * @returns A new formatted string.
+     * @param {string} output - The output string to format.
+     * @returns {string} A new formatted string.
      */
     format(output: string): string;
 }
-

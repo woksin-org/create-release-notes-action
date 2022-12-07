@@ -8,8 +8,10 @@ import { OutputFormat } from './OutputFormat';
  */
  export class MultipleFormattersDefinedFor extends Error {
     /**
-     * Initializes a new instance of {@link MultipleFormattersDefinedFor}
-     * @param type The format type.
+     * Initializes a new instance of {@link MultipleFormattersDefinedFor}.
+     * @param {OutputFormat} type - The format type.
+     * @param {Function} original - The original function.
+     * @param {Function} duplicate - The duplicate function.
      */
     constructor(type: OutputFormat, original: Function, duplicate: Function) {
         super(`The format type '${type}' has multiple formatters defined. The original is '${original.name}' and the duplicate is '${duplicate.name}'`);

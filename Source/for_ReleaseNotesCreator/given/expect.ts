@@ -4,7 +4,6 @@
 import { expect } from 'chai';
 import { Tokens, TokensList } from 'marked';
 
-
 export const expectReleaseNotes = (releaseNotes: TokensList) => ({
     withHeading: (raw: string, text: string, depth: number) => {
         expect(releaseNotes[0].type).to.equal('heading');

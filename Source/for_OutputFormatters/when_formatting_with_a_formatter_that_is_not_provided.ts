@@ -7,7 +7,6 @@ import { NoFormatterDefinedFor } from '../NoFormatterDefinedFor';
 import { OutputFormatters } from '../OutputFormatters';
 import { an_msbuild_formatter, a_raw_formatter } from './given/some_output_formatters';
 
-
 describe('for OutputFormatters', () => {
     describe('when formatting with a formatter that is not provided', () => {
         const formatters = new OutputFormatters(a_raw_formatter(), an_msbuild_formatter());

@@ -8,8 +8,8 @@ import { OutputFormat } from './OutputFormat';
  */
  export class NoFormatterDefinedFor extends Error {
     /**
-     * Initializes a new instance of {@link NoFormatterDefinedFor}
-     * @param type The format type.
+     * Initializes a new instance of {@link NoFormatterDefinedFor}.
+     * @param {OutputFormat} type - The format type.
      */
     constructor(type: OutputFormat) {
         super(`The format type '${type}' has not formatter defined`);

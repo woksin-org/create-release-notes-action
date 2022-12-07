@@ -10,7 +10,7 @@ import { ReleaseNotes } from './ReleaseNotes';
 export interface ICreateReleaseNotes {
     /**
      * Creates release notes from information about a release.
-     * @param information The information to create the release notes from.
+     * @param { ReleaseInformation} information - The information to create the release notes from.
      */
     createFrom(information: ReleaseInformation): ReleaseNotes;
 }
