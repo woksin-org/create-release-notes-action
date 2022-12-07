@@ -1,6 +1,7 @@
 // Copyright (c) Dolittle. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+/* eslint-disable jsdoc/require-jsdoc */
 import { ILogger } from '@dolittle/github-actions.shared.logging';
 import { Parser, Renderer, Slugger } from 'marked';
 import { decode } from 'he';
@@ -97,7 +98,11 @@ export class PlaintextRenderer implements IRenderReleaseNotes {
     private readonly _parser: Parser;
     private readonly _logger: ILogger;
 
-    constructor(private logger: ILogger) {
+    /**
+     * Initializes a new instance of the {PlaintextRenderer} class.
+     * @param {ILogger} logger - The logger.
+     */
+    constructor(logger: ILogger) {
         this._parser = new Parser({
             renderer: new Plaintext(),
         });

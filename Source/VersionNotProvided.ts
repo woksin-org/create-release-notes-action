@@ -6,7 +6,7 @@
  */
  export class VersionNotProvided extends Error {
     /**
-     * Initializes a new instance of {@link VersionNotProvided}
+     * Initializes a new instance of {@link VersionNotProvided}.
      */
     constructor() {
         super('The required "version" input was not provided.');

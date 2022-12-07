@@ -7,12 +7,18 @@ import { MultipleFormattersDefinedFor } from './MultipleFormattersDefinedFor';
 import { NoFormatterDefinedFor } from './NoFormatterDefinedFor';
 import { OutputFormat } from './OutputFormat';
 
+/**
+ * Represents an implementation of {IOutputFormatters}.
+ */
 export class OutputFormatters implements IOutputFormatters {
     private readonly _formatters: Map<OutputFormat, IFormatOutputs>;
 
+    /**
+     * Initializes a new instance of the {OutputFormatters} class.
+     * @param {...IFormatOutputs} formatters - The formatters.
+     */
     constructor(...formatters: IFormatOutputs[]) {
         this._formatters = new Map<OutputFormat, IFormatOutputs>();
-
         for (const formatter of formatters) {
             const type = formatter.type;
             if (this._formatters.has(type)) {

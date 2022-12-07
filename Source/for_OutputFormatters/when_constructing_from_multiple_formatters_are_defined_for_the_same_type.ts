@@ -7,7 +7,6 @@ import { MultipleFormattersDefinedFor } from '../MultipleFormattersDefinedFor';
 import { OutputFormatters } from '../OutputFormatters';
 import { another_raw_formatter, a_raw_formatter } from './given/some_output_formatters';
 
-
 describe('for OutputFormatters', () => {
     describe('when constructing from multiple formatters are defined for the same type', () => {
         let exception: unknown;

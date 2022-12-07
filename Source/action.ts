@@ -14,6 +14,9 @@ import { ReleaseParser } from './ReleaseParser';
 const logger = new Logger();
 
 run();
+/**
+ * Runs the action.
+ */
 export async function run() {
     try {
         const body = getInput('body', { required: true });

@@ -16,7 +16,11 @@ export class ReleaseNotesCreator implements ICreateReleaseNotes {
 
     private readonly _logger: ILogger;
 
-    constructor(private logger: ILogger) {
+    /**
+     * Initializes a new instance of the {ReleaseNotesCreator} class.
+     * @param {ILogger} logger - The logger.
+     */
+    constructor(logger: ILogger) {
         this._logger = logger;
     }
 

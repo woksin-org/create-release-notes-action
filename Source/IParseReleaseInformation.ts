@@ -9,9 +9,9 @@ import { ReleaseInformation } from './ReleaseInformation';
 export interface IParseReleaseInformation {
     /**
      * Parses release information from the provided details.
-     * @param version The version of the release.
-     * @param body The summary of the release.
-     * @param changelogURL The optional full changelog url.
+     * @param version - The version of the release.
+     * @param body - The summary of the release.
+     * @param changelogURL - The optional full changelog url.
      */
     parse(version: string, body: string, changelogURL?: string): ReleaseInformation;
 }

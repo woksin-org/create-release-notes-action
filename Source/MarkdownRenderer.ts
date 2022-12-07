@@ -12,7 +12,11 @@ import { ReleaseNotes } from './ReleaseNotes';
 export class MarkdownRenderer implements IRenderReleaseNotes {
     private readonly _logger: ILogger;
 
-    constructor(private logger: ILogger) {
+    /**
+     * Initializes a new instance of the {ILogger} class.
+     * @param {ILogger} logger - The logger.
+     */
+    constructor(logger: ILogger) {
         this._logger = logger;
     }
 

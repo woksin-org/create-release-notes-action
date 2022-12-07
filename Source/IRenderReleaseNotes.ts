@@ -9,7 +9,7 @@ import { ReleaseNotes } from './ReleaseNotes';
 export interface IRenderReleaseNotes {
     /**
      * Renders the release notes to a string.
-     * @param releaseNotes The release notes to render.
+     * @param releaseNotes - The release notes to render.
      */
     render(releaseNotes: ReleaseNotes): string;
 }

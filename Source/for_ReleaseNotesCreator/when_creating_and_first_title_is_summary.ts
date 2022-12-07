@@ -68,7 +68,6 @@ describe('for PlaintextRenderer', () => {
             changelogURL: 'https://dolittle.io',
         });
 
-
         it('should replace the first header with the version', () => expectReleaseNotes(releaseNotes).withHeading('## Version 10.1.1-prerelease.1\n\n', 'Version 10.1.1-prerelease.1', 2));
         it('should not prepend the version header to the summary header', () => expect(releaseNotes[1].type).to.not.equal('heading'));
         it('should append a changelog section', () => expectReleaseNotes(releaseNotes).withChangelog('https://dolittle.io'));
