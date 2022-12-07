@@ -1,3 +1,9 @@
+# [1.1.3] - 2022-12-7 [PR: #6](https://github.com/dolittle/create-release-notes-action/pull/6)
+## Summary
+
+Update deps and modernise
+
+
 # [1.1.2] - 2021-11-26 [PR: #5](https://github.com/dolittle/create-release-notes-action/pull/5)
 ## Summary
 
