@@ -21,5 +21,5 @@ outputs:
     description: Releases notes formatted as plain text
   
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'release/index.js'
