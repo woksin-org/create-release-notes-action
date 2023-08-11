@@ -3,8 +3,6 @@ This GitHub action creates release notes from a release summary (usually a Pull 
 like [this template](.github/PULL_REQUEST_TEMPLATE.md). The output can be used for packages published to
 e.g. NuGet.
 
-![Github JavaScript Actions CI/CD](https://github.com/dolittle/create-release-notes-action/workflows/Github%20JavaScript%20Actions%20CI/CD/badge.svg)
-
 ### Pre requisites
 Create a workflow `.yml` file in your `.github/workflows` directory. An [example workflow](#example-workflow) is available below.
 
@@ -39,25 +37,14 @@ jobs:
         uses: actions/checkout@v2
       - name: Establish context
         id: context
-        uses: dolittle/establish-context-action@v2
-      - name: Increment version
-        id: increment-version
-        uses: dolittle/increment-version-action@v2
-        with:
-          version: ${{ steps.context.outputs.current-version }}
-          release-type: ${{ steps.context.outputs.release-type }}
+        uses: woksin-org/establish-context-action@v4
       - name: Create release notes
-        uses: dolittle/create-release-notes-action@v1
+        uses: woksin-org/create-release-notes-action@v3
         with:
           body: ${{ steps.context.outputs.pr-body }}
-          version: ${{ steps.increment-version.outputs.next-version }}
+          version: ${{ steps.context.outputs.new-version }}
           changelog-url: "https://github.com/dolittle/create-release-notes-action/blob/master/CHANGELOG.md"
         
 ```
 ## Contributing
 We're always open for contributions and bug fixes!
-
-### Pre requisites
-node <= 12
-yarn
-git
