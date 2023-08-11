@@ -1,8 +1,8 @@
-// Copyright (c) Dolittle. All rights reserved.
+// Copyright (c) woksin-org. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { getInput, setOutput, setFailed } from '@actions/core';
-import { Logger } from '@dolittle/github-actions.shared.logging';
+import { Logger } from '@woksin/github-actions.shared.logging';
 import { MarkdownRenderer } from './MarkdownRenderer';
 import { MSbuildOutputFormatter } from './MSbuildOutputFormatter';
 import { OutputFormatters } from './OutputFormatters';
