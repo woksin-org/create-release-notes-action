@@ -1,3 +1,7 @@
+# [1.1.4] - 2023-8-11[PR: #1](https://github.com/woksin-org/create-release-notes-action/pull/1)
+## Summary
+
+
 # [1.1.3] - 2022-12-7 [PR: #6](https://github.com/dolittle/create-release-notes-action/pull/6)
 ## Summary
 
