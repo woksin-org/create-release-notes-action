@@ -19,7 +19,10 @@ run();
  */
 export async function run() {
     try {
-        const body = getInput('body', { required: true });
+        let body = getInput('body', { required: true });
+        if (!body) {
+            body = 'No release notes were given';
+        }
         const version = getInput('version', { required: true });
         const changelogURL = getInput('changelog-url');
         let outputFormat = getInput('output-format');
