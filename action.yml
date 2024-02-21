@@ -4,6 +4,7 @@ inputs:
   body:
     description: Release summary
     required: true
+    default: 'No release notes were given'
   version:
     description: Version of the release
     required: true
@@ -11,7 +12,7 @@ inputs:
     description: Link to the full changelog to append to the release notes
     required: false
   output-format:
-    description: Output format used for special treament of output strings. Can be "raw" or "msbuild", defaults to "raw".
+    description: Output format used for special treatment of output strings. Can be "raw" or "msbuild", defaults to "raw".
     required: false
 
 outputs:
