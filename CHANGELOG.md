@@ -1,3 +1,13 @@
+# [1.1.5] - 2024-2-21[PR: #2](https://github.com/woksin-org/create-release-notes-action/pull/2)
+## Summary
+
+Noticed problems when given body was empty it failed.
+
+### Added
+
+- A default text to `body` input
+
+
 # [1.1.4] - 2023-8-11[PR: #1](https://github.com/woksin-org/create-release-notes-action/pull/1)
 ## Summary
 
